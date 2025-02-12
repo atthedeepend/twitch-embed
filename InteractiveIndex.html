@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Twitch Stream</title>
+  <!-- Corrected script source URL -->
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+</head>
+<body>
+  <!-- Placeholder for the Twitch Embed -->
+  <div id="twitch-embed"></div>
+
+  <script>
+    // Get the channel from the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const channel = urlParams.get('channel'); // Get 'channel' parameter from the URL
+
+    if (channel) {
+      // Embed the Twitch player with the given channel
+      new Twitch.Embed("twitch-embed", {
+        channel: channel, // Channel name
+        width: 940, // Set width
+        height: 480, // Set height
+        theme: "dark", // Theme: "dark" or "light"
+        parent: ["atthedeepend.github.io"], // Your parent domain
+        muted: true, // Mute the stream by default
+        allowfullscreen: true, // Allow fullscreen mode
+        autoplay: false, // Autoplay the stream
+      });
+    } else {
+      document.body.innerHTML = "Please provide a valid Twitch channel.";
+    }
+  </script>
+</body>
+</html>
