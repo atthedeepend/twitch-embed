@@ -15,7 +15,7 @@
 
     if (channel) {
       // Set the Twitch iframe src dynamically based on the channel parameter
-      document.getElementById('twitch-player').src = `https://player.twitch.tv/?channel=${channel}&parent=https://atthedeepend.github.io/twitch-embed/`;
+      document.getElementById('twitch-player').src = `https://player.twitch.tv/?channel=${channel}&parent=atthedeepend.github.io`;
     } else {
       document.body.innerHTML = "Please provide a valid Twitch channel.";
     }
