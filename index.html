@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Embed Twitch Stream</title>
+</head>
+<body>
+  <input type="text" id="channelInput" placeholder="Enter Twitch Channel" />
+  <button onclick="embedStream()">Embed Stream</button>
+
+  <div id="streamContainer"></div>
+
+  <script>
+    function embedStream() {
+      // Get the channel name from the input
+      const channelName = document.getElementById('channelInput').value;
+
+      // Ensure the input is valid
+      if (channelName) {
+        // Dynamically create an iframe and embed the channel
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://player.twitch.tv/?channel=${channelName}&parent=mywebsite.com`;  // Replace 'mywebsite.com' with your actual domain
+        iframe.frameBorder = "0";
+        iframe.allowFullscreen = true;
+        iframe.scrolling = "no";
+        iframe.width = "620";
+        iframe.height = "378";
+
+        // Clear any previous streams
+        const container = document.getElementById('streamContainer');
+        container.innerHTML = '';  // Clear existing content
+
+        // Append the new iframe
+        container.appendChild(iframe);
+      } else {
+        alert('Please enter a valid channel name!');
+      }
+    }
+  </script>
+</body>
+</html>
