@@ -3,30 +3,29 @@
 <head>
   <meta charset="utf-8">
   <title>Twitch Stream</title>
-  <!-- Corrected script source URL -->
-  <script src="https://embed.twitch.tv/embed/v1.js"></script>
 </head>
 <body>
-  <!-- Placeholder for the Twitch Embed -->
-  <div id="twitch-embed"></div>
+  <!-- Placeholder for the Twitch stream -->
+  <div id="twitch-player-container">
+    <iframe
+      id="twitch-player"
+      width="940"
+      height="480"
+      frameborder="0"
+      allowfullscreen
+      scrolling="no">
+    </iframe>
+  </div>
 
   <script>
     // Get the channel from the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const channel = urlParams.get('channel'); // Get 'channel' parameter from the URL
+    const channel = urlParams.get('channel');
 
     if (channel) {
-      // Embed the Twitch player with the given channel
-      new Twitch.Embed("twitch-embed", {
-        channel: channel, // Channel name
-        width: 940, // Set width
-        height: 480, // Set height
-        theme: "dark", // Theme: "dark" or "light"
-        parent: ["atthedeepend.github.io"], // Your parent domain
-        muted: true, // Mute the stream by default
-        allowfullscreen: true, // Allow fullscreen mode
-        autoplay: false, // Autoplay the stream
-      });
+      // Construct the Twitch Player URL
+      const twitchPlayerUrl = `https://player.twitch.tv/?channel=${channel}&parent=atthedeepend.github.io`;
+      document.getElementById("twitch-player").src = twitchPlayerUrl;
     } else {
       document.body.innerHTML = "Please provide a valid Twitch channel.";
     }
