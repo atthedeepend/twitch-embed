@@ -9,13 +9,9 @@
   <div id="twitch-player-container">
     <iframe
       id="twitch-player"
-      width="940"
+      width="100%"
       height="480"
-      frameborder="0"
-      allowfullscreen="true"
-      autoplay = "false"
-      muted = "true"
-      scrolling="no">
+      allowfullscreen="true">
     </iframe>
   </div>
 
@@ -26,7 +22,7 @@
 
     if (channel) {
       // Construct the Twitch Player URL
-      const twitchPlayerUrl = `https://player.twitch.tv/?channel=${channel}&parent=atthedeepend.github.io`;
+      const twitchPlayerUrl = `https://player.twitch.tv/?channel=${channel}&parent=atthedeepend.github.io&autoplay=false&muted=true`;
       document.getElementById("twitch-player").src = twitchPlayerUrl;
     } else {
       document.body.innerHTML = "Please provide a valid Twitch channel.";
