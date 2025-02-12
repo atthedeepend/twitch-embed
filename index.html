@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Twitch Stream</title>
-  <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+  <!-- Corrected script source URL -->
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
 </head>
 <body>
+  <!-- Placeholder for the Twitch Embed -->
   <div id="twitch-embed"></div>
 
   <script>
@@ -19,8 +21,8 @@
         channel: channel, // Channel name
         width: 620, // Set width
         height: 378, // Set height
-        theme: "dark", // You can choose between "dark" or "light"
-        parent: ["atthedeepend.github.io"], // Add your parent domain here
+        theme: "dark", // Theme: "dark" or "light"
+        parent: ["atthedeepend.github.io"], // Your parent domain
         muted: true, // Mute the stream by default
         allowfullscreen: true, // Allow fullscreen mode
         autoplay: false, // Autoplay the stream
